@@ -13,10 +13,13 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 //Importar rutas
 import { ROUTES } from './app.routes';
 
-//Importar pipes
-import { NoimagePipe } from './pipes/noimage.pipe';
+//Componentes
 import { TarjetaComponent } from './components/shared/tarjeta/tarjeta.component';
 import { LoadingComponent } from './components/shared/loading/loading.component';
+
+//Importar pipes
+import { NoimagePipe } from './pipes/noimage.pipe';
+import { DomseguroPipe } from './pipes/domseguro.pipe';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,8 @@ import { LoadingComponent } from './components/shared/loading/loading.component'
     NavbarComponent,
     NoimagePipe,
     TarjetaComponent,
-    LoadingComponent
+    LoadingComponent,
+    DomseguroPipe
   ],
   imports: [
     BrowserModule,

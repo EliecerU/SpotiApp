@@ -26,9 +26,9 @@
     </div>
 </div>
 
-<div class="row mt-5">
-    <div class="col">
-        <table class="table table-light table-rounded">
+<div class="row m-5">
+    <div class="col-md col-sm col text-center">
+        <table class="table table-dark table-rounded ">
             <thead>
                 <tr>
                     <th>Foto</th>
@@ -48,7 +48,16 @@
                     <td>{{ track.album.name }}</td>
                     <td>{{ track.name }}</td>
                     <td>
-                        <audio [src]="track.preview_url" controls></audio>
+                        <!-- <audio [src]="track.preview_url" controls></audio> -->
+                        <iframe 
+                            [src]=" track.uri | domseguro " 
+                            width="300" 
+                            height="80" 
+                            frameborder="0" 
+                            allowtransparency="true" 
+                            allow="encrypted-media"
+                        >
+                        </iframe>
                     </td>
                 </tr>
             </tbody>
