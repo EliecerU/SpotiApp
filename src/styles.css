@@ -65,3 +65,12 @@ hr {
 .fadeIn {
     animation-name: fadeIn;
 }
+
+.table-rounded{
+    border-collapse:separate;
+    border-spacing: 10;
+    border:solid black 1px;
+    border-radius:10px;
+    -moz-border-radius:10px;
+    -webkit-border-radius: 5px;    
+}

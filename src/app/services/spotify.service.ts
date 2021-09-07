@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 })
 export class SpotifyService {
 
-  accessToken:string = 'BQD2uMoq7LY9QFkqM4eq8oDIr2ZGzb6lNCo9khpUgzIhFjwpr0B18uUjsoyiMisbp2DrYtfz7gw8k9d67YXT3Hzdv7iOo0G42B2vuSFmy7K8lUyu8422Z__m08UExe7UrVivvjwv';
+  accessToken:string = 'BQBpZsRfn3ESlRuSaFg3HImN6VNA7sfsRPgxnEbDCLi1_IOywXTxbTF7YE0DYGcZNICd4mBvWIGiHKHvzt8';
 
   constructor(private http: HttpClient) { 
     console.log('Spotify service listo');
@@ -27,16 +27,19 @@ export class SpotifyService {
   getNewReleases(){
     return this.getQuery('browse/new-releases?limit=20').
     pipe( map( (data:any) => data.albums.items) );
-    
-    // this.http.get('https://api.spotify.com/v1/browse/new-releases?limit=20', { headers }).
-    // pipe( map( (data:any) => data.albums.items) ); 
   }
 
-  getArtista( termino:string ){
+  getArtistas( termino:string ){
     return this.getQuery(`search?q=${termino}&type=artist&limit=15`).
     pipe( map( (data:any)=>data.artists.items) );
-    
-    //   this.http.get(`https://api.spotify.com/v1/search?q=${termino}&type=artist&limit=15`, { headers }).
-    //   pipe( map( (data:any)=>data.artists.items) );
+  }
+
+  getArtista( id:string ){
+    return this.getQuery(`artists/${ id }`);
+  }
+
+  getTopTracks( id:string ){
+    return this.getQuery(`artists/${id}/top-tracks?country=us`)
+    .pipe( map( (data:any) => data.tracks) );
   }
 }
